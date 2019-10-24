@@ -3,8 +3,6 @@ fun sendMessageToClient(
 ) {
     if (client?.personalInfo?.email != null && message != null) {
         mailer.sendMessage(client.personalInfo.email, message)
-    } else {
-        return
     }
 }
 
