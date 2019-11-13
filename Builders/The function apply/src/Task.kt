@@ -1,4 +1,10 @@
-fun <T> T.myApply(f: T.() -> Unit): T { TODO() }
+/*
+ * thisem jest tutaj T, bo mamy extension function T.myApply
+ */
+fun <T> T.myApply(f: T.() -> Unit): T {
+    f()
+    return this
+}
 
 fun createString(): String {
     return StringBuilder().myApply {
