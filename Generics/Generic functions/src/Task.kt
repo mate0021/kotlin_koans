@@ -10,6 +10,13 @@ fun partitionTo() = TODO()
  * 
  * 4) Zwracamy destructured (words, lines), więc zwracamy Parę
  * fun <T, C> Collection<T>.partitionTo(first: T, second: T, predicate: (C) -> Boolean): Pair<T, T>
+ *
+ * 5) Musimy powiedzieć, że jeden z typów generycznych jest kolekcją elementów E. W dodatku mutowalną, bo argumentami są kolekcje, do których będziemy zapisywać elementy po ewaluacji predykatu.
+ * fun <C: MutableCollection<E>, E> Collection<E>.partitionTo(first: C, second: C, predicate: (E) -> Boolean): Pair<C, C>
+ *
+ * 6) Iterujemy po elementach kolekcji, którą rozszerzamy poprzez extension function, więc this'em są elementy tej kolekcji
+ *
+ * 7) Jeśli item spełnia predykat, dodajemy do first (dlatego jest Mutable), jeśli nie, to do second. Zwracamy Pair(first, second)
  */
 
 fun partitionWordsAndLines() {
