@@ -1,6 +1,15 @@
 import java.util.*
 
-fun partitionTo() = TODO()
+fun <C: MutableCollection<E>, E> Collection<E>.partitionTo(first: C, second: C, predicate: (E) -> Boolean): Pair<C, C> {
+    for (item in this) {
+        if (predicate(item)) {
+            first.add(item)
+        } else {
+            second.add(item)
+        }
+    }
+    return Pair(first, second)
+}
 
 /*
  * 1) partitionTo jest wołane na listOf. To znaczy, że jest to extension function na List.
